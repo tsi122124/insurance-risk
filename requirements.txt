@@ -1,0 +1,71 @@
+# ── Core Data Manipulation ──────────────────────────────────────────
+pandas>=2.0         
+# Loads the CSV, filters rows, groups by Province/Gender/ZipCode,
+# computes LossRatio and Margin columns, resamples by month
+
+numpy>=1.24          
+# Powers pandas under the hood; used directly for sqrt(MSE),
+# array math in feature engineering, and handling NaN/inf values
+
+# ── Visualization ───────────────────────────────────────────────────
+matplotlib>=3.7     
+# Base plotting engine — histograms, scatter plots, box plots,
+# time-series line charts for temporal trend analysis
+
+seaborn>=0.12        
+# Built on matplotlib; makes correlation heatmaps, violin plots,
+# and styled bar charts with one line instead of ten
+
+# ── Statistics & Hypothesis Testing ─────────────────────────────────
+scipy>=1.10          
+# Provides chi2_contingency (H₀ province/zip risk tests),
+# ttest_ind with Welch correction (H₀ gender/margin tests),
+# and general statistical distributions
+
+statsmodels>=0.14    
+# Supplies ztest() for large-sample hypothesis tests;
+# also useful for OLS regression summaries with p-values
+# and confidence intervals (good for the final report)
+
+# ── Machine Learning ─────────────────────────────────────────────────
+scikit-learn>=1.3    
+# train_test_split, LinearRegression, RandomForestRegressor,
+# LabelEncoder for categoricals, mean_squared_error, r2_score,
+# and pipeline utilities to avoid data leakage
+
+xgboost>=2.0         
+# XGBRegressor for the severity model — typically the best
+# performer on tabular insurance data; supports early stopping
+# and built-in feature importance scores
+
+# ── Model Interpretability ───────────────────────────────────────────
+shap>=0.43          
+# Generates SHAP summary plots and waterfall charts to explain
+# which features (VehicleAge, Province, SumInsured, etc.)
+# drive each individual prediction — required by Task 4
+
+lime>=0.2            
+# Alternative to SHAP; explains individual predictions by fitting
+# a local linear model around each data point — useful for
+# cross-validating SHAP findings and satisfying Task 4 requirement
+
+# ── Data Version Control ─────────────────────────────────────────────
+dvc>=3.0             
+# Tracks data/insurance_data.csv outside Git (large file),
+# versions raw vs cleaned datasets, and lets teammates
+# reproduce the exact data state with `dvc pull`
+
+# ── Development & Quality ────────────────────────────────────────────
+jupyter              
+# Runs the three project notebooks (01_eda, 02_hypothesis,
+# 03_modeling) interactively in the browser
+ipykernel>=6.0
+
+flake8               
+# Linter called by GitHub Actions CI on every push —
+# enforces PEP 8 style in src/ so code stays clean
+
+pytest               
+# Runs the unit tests in tests/ as part of the CI pipeline;
+# you write small tests for functions in src/ (e.g., verify
+# compute_metrics returns the right columns)
