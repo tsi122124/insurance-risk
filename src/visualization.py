@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+
 def plot_histogram(data, column):
     plt.figure(figsize=(8, 5))
 
@@ -13,6 +14,7 @@ def plot_histogram(data, column):
     plt.tight_layout()
     plt.show()
 
+
 def plot_boxplot(data, column):
     plt.figure(figsize=(8, 4))
 
@@ -23,6 +25,7 @@ def plot_boxplot(data, column):
     plt.title(f"Boxplot of {column}")
     plt.tight_layout()
     plt.show()
+
 
 def plot_correlation_matrix(data):
     plt.figure(figsize=(8, 6))

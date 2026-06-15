@@ -1,10 +1,11 @@
-import pandas as pd
+
 
 def calculate_loss_ratio(df):
     return (
         df["TotalClaims"].sum() /
         df["TotalPremium"].sum()
     )
+
 
 def add_margin(df):
     df = df.copy()
@@ -13,6 +14,7 @@ def add_margin(df):
         df["TotalClaims"]
     )
     return df
+
 
 def missing_value_summary(df):
     return (
@@ -25,13 +27,14 @@ def missing_value_summary(df):
                   x["MissingCount"] /
                   len(df) * 100,
                   2
-              )
-          )
+                   )
+                  )
           .sort_values(
               "MissingPercent",
               ascending=False
-          )
+                      )
     )
+
 
 def claim_frequency(df):
     return (
